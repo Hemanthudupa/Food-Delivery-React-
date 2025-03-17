@@ -70,3 +70,11 @@
   color: rgba(0, 0, 0, 0.53);
   font-size: 12px;
 }
+
+
+.restro-container
+{
+  display: flex;
+  justify-content: start;
+  align-content: space-between;
+}

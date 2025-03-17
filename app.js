@@ -21,20 +21,20 @@ const Header = () => {
   );
 };
 
-const RestroCard = () => {
+const RestroCard = ({menu,ratings,resName,deliveryTime,img}) => {
   return (
     <div className="res-card">
-      <img
+      <img 
         className="res-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x4uyxvihmg8qa3pddkgf"
+        src={img}
       />
       <div className="res-card-content">
-        <h3>Meghana Foods</h3>
-        <p>Biriyani,North Indian,South Indian</p>
-      <div className="ratings">
-      <h5>4.3 stars</h5>
-      <p>38 mins</p>
-      </div>
+        <h3>{resName}</h3>
+        <p>{menu}</p>
+        <div className="ratings">
+          <h5>{ratings}</h5>
+          <p>{deliveryTime}</p>
+        </div>
       </div>
     </div>
   );
@@ -44,7 +44,9 @@ const Body = () => {
     <div className="body">
       <div className="search">search</div>
       <div className="restro-container">
-        <RestroCard />
+        <RestroCard img="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x4uyxvihmg8qa3pddkgf" resName="Meghana Foods" menu="Biriyani,North Indian,South Indian" ratings="4.3" deliveryTime="38 mins"/>
+        <RestroCard img="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/4398bfb2-6948-484a-9613-2d7628a2457a_588619.JPG" resName="KFC" menu="Burger" ratings="4.8" deliveryTime="19 mins"/>
+     
       </div>
     </div>
   );
