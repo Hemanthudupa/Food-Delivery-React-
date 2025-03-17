@@ -28,10 +28,14 @@ const RestroCard = () => {
         className="res-img"
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x4uyxvihmg8qa3pddkgf"
       />
-      <h3>Meghana Foods</h3>
-      <h5>Biriyani,North Indian,South Indian</h5>
+      <div className="res-card-content">
+        <h3>Meghana Foods</h3>
+        <p>Biriyani,North Indian,South Indian</p>
+      <div className="ratings">
       <h5>4.3 stars</h5>
-      <h5>38 mins</h5>
+      <p>38 mins</p>
+      </div>
+      </div>
     </div>
   );
 };
