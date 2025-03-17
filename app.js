@@ -28,7 +28,7 @@ const RestroCard = ({food:{strMealThumb,strMeal}}) => {
       <div className="res-card-content">
         <h3>{strMeal}</h3>
         <div className="ratings">
-          <h5>{4 + Math.random().toFixed(1)}</h5>
+          <h5>{(4 + Math.random()).toFixed(1)}</h5>
           {/* <p>{deliveryTime}</p> */}
         </div>
       </div>
