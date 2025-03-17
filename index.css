@@ -34,7 +34,6 @@
 .res-card:hover {
   outline: 1.5px solid rgba(0, 0, 0, 0.279);
   cursor: pointer;
-
 }
 .search {
   padding: 10px;
