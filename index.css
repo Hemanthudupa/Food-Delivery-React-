@@ -46,10 +46,11 @@
 }
 .res-card-content {
   width: 13.5vw;
+  
 }
 
 .res-card-content > * {
-  /* white-space: nowrap; */
+  white-space: nowrap;
   font-size: medium;
 }
 
@@ -69,6 +70,7 @@
 .res-card p {
   color: rgba(0, 0, 0, 0.53);
   font-size: 12px;
+
 }
 
 
@@ -77,4 +79,5 @@
   display: flex;
   justify-content: start;
   align-content: space-between;
+  flex-wrap: wrap;
 }
