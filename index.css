@@ -20,3 +20,24 @@
   margin: 10px;
   list-style-type: none;
 }
+
+.res-card {
+  height:50vh;
+  width: 20vw;
+  border: 1px solid rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-style: italic;
+}
+.search {
+  padding: 10px;
+}
+
+.res-img {
+  width: 70%;
+  height: 70%;
+  position: relative;
+  top: 10px;
+}
