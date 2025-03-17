@@ -21,6 +21,8 @@ const Header = () => {
   );
 };
 
+
+
 const RestroCard = ({menu,ratings,resName,deliveryTime,img}) => {
   return (
     <div className="res-card">
@@ -39,6 +41,8 @@ const RestroCard = ({menu,ratings,resName,deliveryTime,img}) => {
     </div>
   );
 };
+
+  
 const Body = () => {
   return (
     <div className="body">
