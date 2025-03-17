@@ -4,7 +4,10 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/39-Food-Delivery-Logos-That-Will-Leave-You-Hungry-For-More/food-delivery-logo-by-abhishek-choudhary-dribbble.jpg" />
+        <img
+          className="logo"
+          src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/39-Food-Delivery-Logos-That-Will-Leave-You-Hungry-For-More/food-delivery-logo-by-abhishek-choudhary-dribbble.jpg"
+        />
       </div>
       <div className="nav-items">
         <ul>
@@ -18,6 +21,24 @@ const Header = () => {
   );
 };
 
+const RestroCard = () => {
+  return (
+    <div className="res-card">
+      <h3>Meghana Foods</h3>
+    </div>
+  );
+};
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">search</div>
+      <div className="restro-container">
+        <RestroCard />
+      </div>
+    </div>
+  );
+};
+
 const AppLayout = () => {
   return (
     <div className="app">
@@ -26,8 +47,8 @@ const AppLayout = () => {
     header 
     body
     footer  */}
-
       <Header />
+      <Body />
     </div>
   );
 };
