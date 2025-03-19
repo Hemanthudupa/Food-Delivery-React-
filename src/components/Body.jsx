@@ -1,3 +1,4 @@
+import { listenerCount } from "process";
 import { RestroCard } from "./RestroCard";
 import { useState, useEffect } from "react";
 export const Body = () => {
@@ -26,6 +27,12 @@ export const Body = () => {
 
     return food;
   }
+
+  if (foodData.length === 0) {
+    return <h1>Loading...</h1>;
+  }
+
+  
   return (
     <div className="body">
       <div className="filter">
