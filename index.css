@@ -22,8 +22,7 @@
 }
 
 .res-card {
-  height: 50vh;
-  width: 18vw;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,12 +39,16 @@
 }
 
 .res-img {
-  width: 75%;
-  height: 40%;
+  width: 55%;
+  height: 30%;
   position: relative;
 }
 .res-card-content {
   width: 13.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .res-card-content > * {
@@ -84,3 +87,12 @@
   margin: 10px;
   cursor: pointer;
 }
+.content {
+  text-align: center;
+  height: 20vh; /* Use vh for a consistent height */
+  width: 30vw;
+  overflow: auto; /* Allow vertical scrolling */
+  white-space: normal; /* Ensure text wraps */
+}
+
+
