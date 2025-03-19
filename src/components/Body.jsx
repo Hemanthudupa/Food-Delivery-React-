@@ -29,11 +29,13 @@ export const Body = () => {
     return food;
   }
 
-  if (foodData.length === 0) {
-    return <Loader />;
-  }
+  // if (foodData.length === 0) {
+  //   return <Loader />;
+  // }
 
-  return (
+  return foodData.length == 0 ? (
+    <Loader />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
