@@ -9,10 +9,12 @@
   width: 80px;
 }
 
-.nav-items ul {
+.nav-items > * {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  right: 80px;
+  right: 40px;
   font-size: 24px;
 }
 .nav-items > ul > li {
@@ -110,4 +112,13 @@
   width: 45%;
   margin: 10px;
   background-color: #f0f0f0;
+}
+
+.login {
+  padding: 10px 50px;
+  height: fit-content;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
