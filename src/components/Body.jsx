@@ -1,6 +1,7 @@
 import { listenerCount } from "process";
 import { RestroCard } from "./RestroCard";
 import { useState, useEffect } from "react";
+import Loader from "./Shimmer";
 export const Body = () => {
   const [foodData, setFoodData] = useState([]);
 
@@ -29,10 +30,9 @@ export const Body = () => {
   }
 
   if (foodData.length === 0) {
-    return <h1>Loading...</h1>;
+    return <Loader />;
   }
 
-  
   return (
     <div className="body">
       <div className="filter">
