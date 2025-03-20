@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router";
 import Contact from "./components/Contact";
+import { Error404 } from "./components/Error404";
 
 const AppLayout = () => {
   return (
@@ -21,7 +22,7 @@ const AppLayout = () => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const Route = createBrowserRouter([
-  { path: "/", element: <AppLayout />, errorElement: <h1>404 Not Found</h1> },
+  { path: "/", element: <AppLayout />, errorElement: <Error404 /> },
   { path: "/contact", element: <Contact /> },
 ]);
 root.render(<RouterProvider router={Route} />);
