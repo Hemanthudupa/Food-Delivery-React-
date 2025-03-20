@@ -1,12 +1,41 @@
+body {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
+  background: linear-gradient(
+    90deg,
+    #0044ff,
+    #0088ff,
+    #00ccff,
+    #0088ff,
+    #0044ff
+  );
+  background-size: 300% 100%; /* Make the gradient longer */
+  animation: moveGradient 8s infinite linear;
 }
 .logo {
   height: 80px;
   width: 80px;
+  position: relative;
+  left: 20%;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  } /* Moves to the right fully */
+  100% {
+    background-position: 0% 50%;
+  } /* Moves back smoothly */
 }
 
 .nav-items > * {
@@ -16,6 +45,8 @@
   position: relative;
   right: 40px;
   font-size: 24px;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .nav-items > ul > li {
   padding: 10px;
@@ -115,12 +146,35 @@
 }
 
 .login {
-  padding: 10px 50px;
-  height: fit-content;
-  width: 30px;
+  padding: 10px 20px;
+  height: 40px;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 255, 0.8),
+    rgba(0, 0, 180, 0.8)
+  );
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.login:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 200, 0.9),
+    rgba(0, 0, 150, 0.9)
+  );
+  transform: scale(1.09);
+  box-shadow: 0px 4px 15px rgba(0, 0, 255, 0.4);
 }
 
 .filter {
