@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Loader from "./Shimmer";
 export const Body = () => {
   const [foodData, setFoodData] = useState([]);
-
   const [search, setSearch] = useState("");
   const [foodDataFilter, setFoodDataFilter] = useState([]);
 
@@ -13,10 +12,11 @@ export const Body = () => {
       setFoodData(data.categories);
       setFoodDataFilter(data.categories);
     });
+    console.log(" useEffect is called ");
   }, []);
 
   function sortInAlpha() {
-    let largestname = [...foodData].sort((a, b) => {
+    let largestname = [...foodDataFilter].sort((a, b) => {
       if (a.strCategory < b.strCategory) return -1;
       if (a.strCategory > b.strCategory) return 1;
     });
@@ -29,7 +29,7 @@ export const Body = () => {
       "https://www.themealdb.com/api/json/v1/1/categories.php"
     );
     food = await food.json();
-    console.log(food, " is the food data in orderDetails api ");
+    // console.log(food, " is the food data in orderDetails api ");
     return food;
   }
 
@@ -69,7 +69,7 @@ export const Body = () => {
           className="filter-btn"
           onClick={() => {
             let data = sortInAlpha();
-            setFoodData(data);
+            setFoodDataFilter(data);
           }}
         >
           SORT ALPHABETICALLY
@@ -81,13 +81,14 @@ export const Body = () => {
        this is props declaraiton 
        */}
         {foodDataFilter.map((ele) => {
-          console.log(ele, " is the ele ");
+          // console.log(ele, " is the ele ");
           return <RestroCard key={ele.idCategory} food={ele} />;
         })}
       </div>
     </div>
   );
 };
-
 const name = "hello";
 export default name;
+
+
