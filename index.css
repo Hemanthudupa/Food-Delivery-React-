@@ -54,6 +54,11 @@ body {
   list-style-type: none;
 }
 
+.nav-items > ul > li > * {
+  text-decoration: none;
+  color: white;
+}
+
 .res-card {
   width: 50%;
   display: flex;

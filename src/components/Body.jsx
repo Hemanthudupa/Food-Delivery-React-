@@ -88,7 +88,4 @@ export const Body = () => {
     </div>
   );
 };
-const name = "hello";
-export default name;
-
 
