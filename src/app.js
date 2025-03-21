@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Contact from "./components/Contact";
 import { Error404 } from "./components/Error404";
 import About from "./components/About";
+import CategorayId from "./components/Categoray-Id";
 
 // const AppLayout = () => {
 //   return (
@@ -45,7 +46,10 @@ const Route = createBrowserRouter([
       { path: "/", element: <Body /> },
       { path: "contact", element: <Contact /> },
       { path: "about", element: <About /> },
-
+      {
+        path: "category/:id",
+        element: <CategorayId  />,
+      },
     ],
   },
 ]);

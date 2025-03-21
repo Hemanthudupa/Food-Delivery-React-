@@ -2,6 +2,8 @@ import { listenerCount } from "process";
 import { RestroCard } from "./RestroCard";
 import { useState, useEffect } from "react";
 import Loader from "./Shimmer";
+import { Link } from "react-router";
+import { orderDetails } from "../utils/mockData";
 export const Body = () => {
   const [foodData, setFoodData] = useState([]);
   const [search, setSearch] = useState("");
@@ -12,7 +14,6 @@ export const Body = () => {
       setFoodData(data.categories);
       setFoodDataFilter(data.categories);
     });
-    console.log(" useEffect is called ");
   }, []);
 
   function sortInAlpha() {
@@ -24,14 +25,6 @@ export const Body = () => {
     return largestname;
   }
 
-  async function orderDetails() {
-    let food = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/categories.php"
-    );
-    food = await food.json();
-    // console.log(food, " is the food data in orderDetails api ");
-    return food;
-  }
 
   // if (foodData.length === 0) {
   //   return <Loader />;
@@ -82,10 +75,13 @@ export const Body = () => {
        */}
         {foodDataFilter.map((ele) => {
           // console.log(ele, " is the ele ");
-          return <RestroCard key={ele.idCategory} food={ele} />;
+          return (
+            <Link className="restro-box" key={ele.idCategory} to={`/category/${ele.idCategory}`}>
+              <RestroCard food={ele} />
+            </Link>
+          );
         })}
       </div>
     </div>
   );
 };
-
