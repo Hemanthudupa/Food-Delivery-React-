@@ -11,13 +11,13 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img
-          className="logo"
-          src={LOGO_URL}
-          onClick={(e) => {
-            navigate("/");
-          }}
-        />
+          <img
+            className="logo"
+            src={LOGO_URL}
+            onClick={(e) => {
+              navigate("/");
+            }}
+          />
       </div>
       <div className="nav-items">
         <ul>
