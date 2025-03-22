@@ -5,8 +5,9 @@ body {
   overflow-x: hidden;
 }
 
+
 .header {
-  height: 25vh;
+  height: 20vh;
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -22,6 +23,7 @@ body {
   );
   background-size: 300% 100%; /* Make the gradient longer */
   animation: moveGradient 8s infinite linear;
+  overflow: visible;
 }
 .logo {
   height: 80px;
@@ -156,6 +158,7 @@ body {
 
 .shimmer-wrapper {
   width: 100%;
+  height: 80vh;;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -239,4 +242,15 @@ body {
 .single {
   height: max-content;
   width: 50%;
+}
+
+.body
+{
+  height: 80vh;
+  width: 100vw;
+}
+
+.body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+  overflow: hidden;
 }

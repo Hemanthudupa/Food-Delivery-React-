@@ -1,5 +1,6 @@
-
-export const RestroCard = ({food:{strCategoryThumb,strCategory,strCategoryDescription}}) => {
+export const RestroCard = ({
+  food: { strCategoryThumb, strCategory, strCategoryDescription },
+}) => {
   return (
     <div className="res-card">
       <img className="res-img" src={strCategoryThumb} />
@@ -13,4 +14,4 @@ export const RestroCard = ({food:{strCategoryThumb,strCategory,strCategoryDescri
       </div>
     </div>
   );
-}; 
+};

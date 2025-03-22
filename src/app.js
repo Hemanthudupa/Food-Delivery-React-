@@ -5,7 +5,7 @@ import { Body } from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Contact from "./components/Contact";
 import { Error404 } from "./components/Error404";
-import About from "./components/About";
+import About from "./components/AboutClass";
 import CategorayId from "./components/Categoray-Id";
 
 // const AppLayout = () => {
@@ -45,7 +45,10 @@ const Route = createBrowserRouter([
     children: [
       { path: "/", element: <Body /> },
       { path: "contact", element: <Contact /> },
-      { path: "about", element: <About /> },
+      {
+        path: "about",
+        element: <About name={"Hemanth Udupa"} role={"Software Developer"} />,
+      },
       {
         path: "category/:id",
         element: <CategorayId />,
