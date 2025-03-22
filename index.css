@@ -80,6 +80,9 @@ body {
 .search {
   padding: 10px;
 }
+.search :focus {
+  outline: none;
+}
 
 .res-img {
   width: 55%;
@@ -118,14 +121,14 @@ body {
 }
 
 .restro-container {
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
 }
 .restro-box {
-  width: 40%;
+  width: 40vw;
   height: 50%;
   display: flex;
   justify-content: center;
@@ -134,8 +137,6 @@ body {
   color: black;
   text-decoration: none;
 }
-
-
 
 .filter-btn {
   /* padding: 10px; */
@@ -202,11 +203,29 @@ body {
 .filter {
   display: flex;
   align-items: center;
+  height: max-content;
+  width: max-content;
+  position: relative;
+  bottom: 12.6vh;
+  left: 15vw;
+}
+.filter > * {
+  text-decoration: none;
+  color: white;
+  background: #f0f0f000;
+  border: 0.5px dashed white;
+}
+.filter :first-child {
+  border: none;
+}
+.filter :first-child button {
+  background-color: #f0f0f000;
+  border: 0.5px dashed white;
+  position: relative;
+  left: 5%;
 }
 
-
-.app
-{
+.app {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -214,8 +233,7 @@ body {
   align-items: center;
 }
 
-.single
-{
+.single {
   height: max-content;
   width: 50%;
 }

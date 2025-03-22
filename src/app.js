@@ -48,7 +48,7 @@ const Route = createBrowserRouter([
       { path: "about", element: <About /> },
       {
         path: "category/:id",
-        element: <CategorayId  />,
+        element: <CategorayId />,
       },
     ],
   },
