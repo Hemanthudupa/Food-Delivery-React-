@@ -2,8 +2,11 @@ body {
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
+
 .header {
+  height: 25vh;
   width: 100vw;
   display: flex;
   justify-content: space-between;
