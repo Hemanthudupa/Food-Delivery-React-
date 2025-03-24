@@ -5,7 +5,6 @@ body {
   overflow-x: hidden;
 }
 
-
 .header {
   height: 20vh;
   width: 100vw;
@@ -13,12 +12,12 @@ body {
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
- 
+
   background-size: 300% 100%; /* Make the gradient longer */
   animation: moveGradient 8s infinite linear;
   overflow: visible;
 }
-.online{
+.online {
   background: linear-gradient(
     90deg,
     #007211,
@@ -28,8 +27,7 @@ body {
     #0dff00
   );
 }
-.offline
-{
+.offline {
   background: linear-gradient(
     90deg,
     #6c0000,
@@ -73,7 +71,25 @@ body {
   margin: 10px;
   list-style-type: none;
 }
+.nav-items > ul :hover {
+  background: linear-gradient(to right, rgb(64, 255, 0), rgb(217, 255, 0) , red);
+  background-size: 200% 100%;
+  background-clip: text;
+  color: transparent;
+  animation: colorMove 3s infinite linear;
+}
 
+@keyframes colorMove {
+  0% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
 .nav-items > ul > li > * {
   text-decoration: none;
   color: white;
@@ -172,7 +188,7 @@ body {
 
 .shimmer-wrapper {
   width: 100%;
-  height: 80vh;;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,8 +273,7 @@ body {
   width: 50%;
 }
 
-.body
-{
+.body {
   height: 80vh;
   width: 100vw;
 }
