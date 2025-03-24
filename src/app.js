@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
@@ -6,7 +6,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Contact from "./components/Contact";
 import { Error404 } from "./components/Error404";
 import About from "./components/AboutClass";
-import CategorayId from "./components/Categoray-Id";
+
+const CategorayId = lazy(() => import("./components/Categoray-Id"));
+// import CategorayId from "./components/Categoray-Id";
 
 // const AppLayout = () => {
 //   return (
@@ -51,7 +53,11 @@ const Route = createBrowserRouter([
       },
       {
         path: "category/:id",
-        element: <CategorayId />,
+        element: (
+          <Suspense fallback={<h1>WAIT THE CONTENT IS LOADING</h1>}>
+            <CategorayId />
+          </Suspense>
+        ),
       },
     ],
   },

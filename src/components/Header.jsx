@@ -11,7 +11,11 @@ export const Header = () => {
   return (
     <div
       className="header"
-      style={{ backgroundColor: status ? "green" : "red" }}
+      style={{
+        background: status
+          ? "linear-gradient(to right ,rgb(40, 70, 45),rgb(43, 101, 39), #00ad1d, #06d633, #a9ffa5)"
+          : "linear-gradient(to right , #6c0000, #a00000, #b70000, #d80000, #ff0000)"
+      }}
     >
       <div className="logo-container">
         <img
