@@ -13,17 +13,31 @@ body {
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
-  background: linear-gradient(
-    90deg,
-    #0044ff,
-    #0088ff,
-    #00ccff,
-    #0088ff,
-    #0044ff
-  );
+ 
   background-size: 300% 100%; /* Make the gradient longer */
   animation: moveGradient 8s infinite linear;
   overflow: visible;
+}
+.online{
+  background: linear-gradient(
+    90deg,
+    #007211,
+    #098400,
+    #00a01b,
+    #00c62b,
+    #0dff00
+  );
+}
+.offline
+{
+  background: linear-gradient(
+    90deg,
+    #6c0000,
+    #a00000,
+    #b70000,
+    #d80000,
+    #ff0000
+  );
 }
 .logo {
   height: 80px;

@@ -9,7 +9,10 @@ export const Header = () => {
   const navigate = useNavigate();
   const status = useOnlineStatus();
   return (
-    <div className="header">
+    <div
+      className="header"
+      style={{ backgroundColor: status ? "green" : "red" }}
+    >
       <div className="logo-container">
         <img
           className="logo"
@@ -21,7 +24,8 @@ export const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Internet Connection: {status ? "🟢" : "🔴"}</li>
+          {/* <li>Internet Connection: {status ? "🟢" : "🔴"}</li> */}
+
           <li>
             <Link to="/">Home</Link>
           </li>
