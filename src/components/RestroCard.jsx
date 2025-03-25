@@ -4,7 +4,7 @@ export const RestroCard = ({
   return (
     <div className=" justify-between  text-wrap  border-2 rounded-xl  w-96 overflow-hidden hover:bg-gray-300 hover:scale-105 ">
       <img className="w-full h-52" src={strCategoryThumb} />
-      <div className="flex-col justify-center items-center overflow-y-auto h-40 w-96 ">
+      <div className="flex-col justify-center items-center overflow-y-auto scrollbar-hide h-40 w-96 ">
         <h3 className="font-serif font-extrabold  justify-center flex">
           {strCategory}
         </h3>
@@ -20,4 +20,17 @@ export const RestroCard = ({
       </div>
     </div>
   );
+};
+
+export const highRatedFood = (Card) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <label className="absolute top-2 left-2 bg-yellow-400 px-2 py-1 text-sm font-bold rounded">
+          Promoted
+        </label>
+        <Card {...props} />
+      </div>
+    );
+  };
 };

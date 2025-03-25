@@ -1,5 +1,5 @@
 import { listenerCount } from "process";
-import { RestroCard } from "./RestroCard";
+import { highRatedFood, RestroCard } from "./RestroCard";
 import { useState, useEffect } from "react";
 import Loader from "./Shimmer";
 import { Link } from "react-router";
@@ -77,13 +77,17 @@ export const Body = () => {
        */}
         {foodDataFilter.map((ele) => {
           // console.log(ele, " is the ele ");
+          let Comp;
+          if (Math.round(Math.random()) == 1) {
+            Comp = highRatedFood(RestroCard);
+          }
           return (
-            <Link 
-              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10 "
+            <Link
+              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10  scrollbar-hide"
               key={ele.idCategory}
               to={`/category/${ele.idCategory}`}
             >
-              <RestroCard food={ele} />
+              {Comp ? <Comp food={ele}></Comp> : <RestroCard food={ele} />}
             </Link>
           );
         })}

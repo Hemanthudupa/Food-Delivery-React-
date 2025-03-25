@@ -10,7 +10,7 @@ export const Header = () => {
   const status = useOnlineStatus();
   return (
     <div
-      className={`flex w-screen h-20 justify-between items-center p-4 ${
+      className={`flex w-screen h-20 justify-between items-center p-4  ${
         status ? "bg-green-900 text-white" : "bg-red-600 text-white"
       }`}
     >
