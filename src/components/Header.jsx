@@ -10,24 +10,21 @@ export const Header = () => {
   const status = useOnlineStatus();
   return (
     <div
-      className="header"
-      style={{
-        background: status
-          ? "linear-gradient(to right ,rgb(40, 70, 45),rgb(43, 101, 39), #00ad1d, #06d633, #a9ffa5)"
-          : "linear-gradient(to right , #6c0000, #a00000, #b70000, #d80000, #ff0000)"
-      }}
+      className={`flex w-screen h-20 justify-between items-center p-4 ${
+        status ? "bg-green-900 text-white" : "bg-red-600 text-white"
+      }`}
     >
-      <div className="logo-container">
+      <div className=" ">
         <img
-          className="logo"
+          className="w-16  "
           src={LOGO_URL}
           onClick={(e) => {
             navigate("/");
           }}
         />
       </div>
-      <div className="nav-items">
-        <ul>
+      <div className="nav-items w-8/12 ">
+        <ul className="flex justify-around">
           {/* <li>Internet Connection: {status ? "🟢" : "🔴"}</li> */}
 
           <li>

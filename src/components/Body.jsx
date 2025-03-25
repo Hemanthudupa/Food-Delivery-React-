@@ -25,18 +25,19 @@ export const Body = () => {
     return largestname;
   }
 
-
   // if (foodData.length === 0) {
   //   return <Loader />;
   // }
+  // 
 
   return foodData.length == 0 ? (
     <Loader />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="w-screen h-screen overflow-scroll  bg-green-50 ">
+      <div className="flex w-screen justify-between ">
+        <div className="w-4/12 flex h-auto justify-evenly ">
           <input
+            className="w-80 border border-solid  border-green-800 hover:scale-105 "
             type="text"
             value={search}
             onChange={(e) => {
@@ -44,6 +45,7 @@ export const Body = () => {
             }}
           />
           <button
+            className="border-2 bg-green-800 text-white px-4 "
             onClick={() => {
               let data = foodData.filter((ele) => {
                 if (
@@ -59,7 +61,7 @@ export const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="w-64 bg-orange-300 text-white"
           onClick={() => {
             let data = sortInAlpha();
             setFoodDataFilter(data);
@@ -68,7 +70,7 @@ export const Body = () => {
           SORT ALPHABETICALLY
         </button>
       </div>
-      <div className="restro-container">
+      <div className="flex flex-wrap h-screen overflow-scroll justify-center">
         {/* <RestroCard img="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x4uyxvihmg8qa3pddkgf" resName="Meghana Foods" menu="Biriyani,North Indian,South Indian" ratings="4.3" deliveryTime="38 mins"/>
         <RestroCard img="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/4398bfb2-6948-484a-9613-2d7628a2457a_588619.JPG" resName="KFC" menu="Burger" ratings="4.8" deliveryTime="19 mins"/>
        this is props declaraiton 
@@ -76,7 +78,11 @@ export const Body = () => {
         {foodDataFilter.map((ele) => {
           // console.log(ele, " is the ele ");
           return (
-            <Link className="restro-box" key={ele.idCategory} to={`/category/${ele.idCategory}`}>
+            <Link 
+              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10"
+              key={ele.idCategory}
+              to={`/category/${ele.idCategory}`}
+            >
               <RestroCard food={ele} />
             </Link>
           );

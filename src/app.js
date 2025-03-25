@@ -23,7 +23,7 @@ const CategorayId = lazy(() => import("./components/Categoray-Id"));
 
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="overflow-hidden h-full w-screen ">
       <Header />
       {/* header should be rendered for every page  */}
       <Outlet />
