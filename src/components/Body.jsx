@@ -28,7 +28,7 @@ export const Body = () => {
   // if (foodData.length === 0) {
   //   return <Loader />;
   // }
-  // 
+  //
 
   return foodData.length == 0 ? (
     <Loader />
@@ -79,7 +79,7 @@ export const Body = () => {
           // console.log(ele, " is the ele ");
           return (
             <Link 
-              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10"
+              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10 "
               key={ele.idCategory}
               to={`/category/${ele.idCategory}`}
             >

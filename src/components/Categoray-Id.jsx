@@ -22,11 +22,8 @@ const CategorayId = () => {
   } else {
     return foodData.map((ele) => {
       return (
-        <div className="flex justify-center items-center">
-          <div
-            key={ele.idCategory}
-            className=" w-96 h-screen justify-center flex-col items-center align-middle"
-          >
+        <div className="flex justify-center items-center" key={ele.idCategory}>
+          <div className=" w-96 h-screen justify-center flex-col items-center align-middle">
             <h1 className="h-10 font-extrabold">{ele.strCategory}</h1>
             <img className="h-40" src={ele.strCategoryThumb} />
             <p>{ele.strCategoryDescription}</p>
