@@ -33,7 +33,7 @@ export const Body = () => {
   return foodData.length == 0 ? (
     <Loader />
   ) : (
-    <div className="w-screen h-screen overflow-scroll  bg-green-50 ">
+    <div className="w-screen h-full overflow-hidden  bg-green-50 ">
       <div className="flex w-screen justify-between ">
         <div className="w-4/12 flex h-auto justify-evenly ">
           <input
