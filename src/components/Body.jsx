@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Loader from "./Shimmer";
 import { Link } from "react-router";
 import { orderDetails } from "../utils/mockData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 export const Body = () => {
   const [foodData, setFoodData] = useState([]);
   const [search, setSearch] = useState("");
@@ -15,6 +16,7 @@ export const Body = () => {
       setFoodDataFilter(data.categories);
     });
   }, []);
+  const status = useOnlineStatus();
 
   function sortInAlpha() {
     let largestname = [...foodDataFilter].sort((a, b) => {
@@ -30,7 +32,7 @@ export const Body = () => {
   // }
   //
 
-  return foodData.length == 0 ? (
+  return foodData.length == 0 || !status ? (
     <Loader />
   ) : (
     <div className="w-screen h-full overflow-hidden  bg-green-50 ">
@@ -45,7 +47,7 @@ export const Body = () => {
             }}
           />
           <button
-            className="border-2 bg-green-800 text-white px-4 "
+            className="border-2 bg-green-800 text-white px-4 hover:scale-105 "
             onClick={() => {
               let data = foodData.filter((ele) => {
                 if (

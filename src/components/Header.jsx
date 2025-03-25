@@ -7,7 +7,8 @@ export const Header = () => {
   let [buttonName, setButtonName] = useState("Login");
 
   const navigate = useNavigate();
-  const status = useOnlineStatus();
+    const status = useOnlineStatus();
+  
    return (
     <div
       className={`flex w-screen h-20 justify-between items-center p-4 ${
