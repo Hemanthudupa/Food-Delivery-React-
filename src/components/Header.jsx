@@ -8,9 +8,9 @@ export const Header = () => {
 
   const navigate = useNavigate();
   const status = useOnlineStatus();
-  return (
+   return (
     <div
-      className={`flex w-screen h-20 justify-between items-center p-4  ${
+      className={`flex w-screen h-20 justify-between items-center p-4 ${
         status ? "bg-green-900 text-white" : "bg-red-600 text-white"
       }`}
     >
@@ -27,20 +27,20 @@ export const Header = () => {
         <ul className="flex justify-around">
           {/* <li>Internet Connection: {status ? "🟢" : "🔴"}</li> */}
 
-          <li>
+          <li className=" hover:text-yellow-200">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className=" hover:text-yellow-200">
             {" "}
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className=" hover:text-yellow-200">
             {" "}
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li className=" hover:text-yellow-200">Cart</li>
           <button
-            className="login"
+            className=" hover:text-yellow-200"
             onClick={() => {
               setButtonName(buttonName === "Login" ? "Logout" : "Login");
             }}
