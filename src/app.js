@@ -55,7 +55,7 @@ const Route = createBrowserRouter([
         path: "category/:id",
         element: (
           <Suspense fallback={<h1>WAIT THE CONTENT IS LOADING</h1>}>
-            <CategorayId  />
+            <CategorayId />
           </Suspense>
         ),
       },
