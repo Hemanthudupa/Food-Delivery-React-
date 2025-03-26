@@ -23,7 +23,7 @@ export function RestaurantCategoray({
 }) {
   let [opened, setOpened] = useState(false);
   function handleClick() {
-    opened ? setOpened(false) : setOpened(true);
+    setOpened(!opened);
   }
   return (
     <div key={categoryId} className="flex justify-center p-4">
