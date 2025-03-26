@@ -15,6 +15,7 @@ const CategorayId = () => {
 
   //   // setFoodData(food);
   // }, []);
+  let [opened, setOpened] = useState(-1);
 
   const foodData = useFoodData(id);
   if (foodData === null || foodData.length < 2) {
@@ -31,6 +32,10 @@ const CategorayId = () => {
               <RestaurantCategoray
                 key={ele.card.card.categoryId}
                 data={ele.card.card}
+                showData={opened === ind ? true : false}
+                setIndex={() => {
+                  opened == -1 ? setOpened(ind) : setOpened(-1);
+                }}
               />
             );
           })}

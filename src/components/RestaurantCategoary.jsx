@@ -20,10 +20,12 @@ import ListItems from "../components/ListItems";
 
 export function RestaurantCategoray({
   data: { image, title, itemCards, categoryId },
+  setIndex: setOpened,
+  showData,
 }) {
-  let [opened, setOpened] = useState(false);
+  let [res, setRes] = useState(false);
   function handleClick() {
-    setOpened(!opened);
+    setOpened();
   }
   return (
     <div key={categoryId} className="flex justify-center p-4">
@@ -36,11 +38,14 @@ export function RestaurantCategoray({
           <h2>
             {title} ({itemCards.length})
           </h2>
-          <span className="cursor-pointer text-lg">{opened ? "🔽" : "🔼"}</span>
+          {console.log(showData, " is the function ")}
+          <span className="cursor-pointer text-lg">
+            {showData ? "🔽" : "🔼"}
+          </span>
         </div>
 
         {/* List Items */}
-        {opened && <ListItems data={itemCards} />}
+        {showData && <ListItems data={itemCards} />}
       </div>
     </div>
   );
