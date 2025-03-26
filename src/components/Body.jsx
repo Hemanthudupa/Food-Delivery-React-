@@ -11,9 +11,15 @@ export const Body = () => {
   const [foodDataFilter, setFoodDataFilter] = useState([]);
 
   useEffect(() => {
-    orderDetails().then((data) => {
-      setFoodData(data.categories);
-      setFoodDataFilter(data.categories);
+    orderDetails().then(({ data }) => {
+      let { cards } = data;
+      let [card] = cards.filter((ele) => {
+        if (ele?.card?.card?.id == "top_brands_for_you") return ele;
+      });
+
+      let finalData = card.card.card.gridElements.infoWithStyle.restaurants;
+      setFoodData(finalData);
+      setFoodDataFilter(finalData);
     });
   }, []);
   const status = useOnlineStatus();
@@ -78,18 +84,17 @@ export const Body = () => {
        this is props declaraiton 
        */}
         {foodDataFilter.map((ele) => {
-          // console.log(ele, " is the ele ");
           let Comp;
-          if (Math.round(Math.random()) == 1) {
+          if (ele.info.avgRating > 4.5) {
             Comp = highRatedFood(RestroCard);
           }
           return (
             <Link
               className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10  scrollbar-hide"
-              key={ele.idCategory}
-              to={`/category/${ele.idCategory}`}
+              key={ele.info.id}
+              to={`/category/${ele.info.id}`}
             >
-              {Comp ? <Comp food={ele}></Comp> : <RestroCard food={ele} />}
+              {Comp ? <Comp food={ele} /> : <RestroCard food={ele} />}
             </Link>
           );
         })}

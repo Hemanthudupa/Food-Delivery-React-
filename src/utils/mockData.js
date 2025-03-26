@@ -1,8 +1,6 @@
-
+import { SWIGGY_URL } from "./constants";
 export async function orderDetails() {
-  let food = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/categories.php"
-  );
+  let food = await fetch(SWIGGY_URL);
   food = await food.json();
   return food;
 }
