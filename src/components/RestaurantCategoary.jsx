@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ListItems from "../components/ListItems";
 // export function RestaurantCategoray({
 //   data: { image, title, itemCards, categoryId },
@@ -20,19 +21,26 @@ import ListItems from "../components/ListItems";
 export function RestaurantCategoray({
   data: { image, title, itemCards, categoryId },
 }) {
+  let [opened, setOpened] = useState(false);
+  function handleClick() {
+    opened ? setOpened(false) : setOpened(true);
+  }
   return (
     <div key={categoryId} className="flex justify-center p-4">
-      <div className="w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-5">
+      <div
+        onClick={handleClick}
+        className="w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-5"
+      >
         {/* Category Header */}
         <div className="flex justify-between items-center text-xl font-bold font-mono border-b pb-3">
           <h2>
             {title} ({itemCards.length})
           </h2>
-          <span className="cursor-pointer text-lg">🔼</span>
+          <span className="cursor-pointer text-lg">{opened ? "🔽" : "🔼"}</span>
         </div>
 
         {/* List Items */}
-        <ListItems data={itemCards} />
+        {opened && <ListItems data={itemCards} />}
       </div>
     </div>
   );
