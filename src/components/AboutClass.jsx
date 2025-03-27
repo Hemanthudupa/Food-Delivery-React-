@@ -1,4 +1,5 @@
 import { Component } from "react";
+import userContext from "../utils/UserContext";
 class About extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,15 @@ class About extends Component {
       <div className="about">
         <h1>About Us</h1>
         <p>
-          i am <b>{this.props.name}</b> and i am a <b>{this.props.role}</b>
+          i am
+          <b>
+            <userContext.Consumer>
+              {({ name }) => {
+                return name;
+              }}
+            </userContext.Consumer>
+          </b>
+          and i am a <b>{this.props.role}</b>
         </p>
         <p>
           We are a group of developers who are passionate about coding and we

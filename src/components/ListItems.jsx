@@ -1,6 +1,8 @@
 import { IMAGE_BASE_URL } from "../utils/constants";
 
+
 const ListItems = ({ data }) => {
+
   return (
     <div className="mt-4 space-y-4">
       {data.map((item) => {

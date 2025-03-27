@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Contact from "./components/Contact";
 import { Error404 } from "./components/Error404";
 import About from "./components/AboutClass";
+import userContext from "./utils/UserContext";
 
 const CategorayId = lazy(() => import("./components/Categoray-Id"));
 // import CategorayId from "./components/Categoray-Id";
@@ -26,7 +27,13 @@ const AppLayout = () => {
     <div className="overflow-y-scroll  h-screen w-screen body ">
       <Header />
       {/* header should be rendered for every page  */}
-      <Outlet />
+      <userContext.Provider
+        value={{
+          name: " sumanth ",
+        }}
+      >
+        <Outlet />
+      </userContext.Provider>
     </div>
   );
 };

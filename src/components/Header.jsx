@@ -3,16 +3,19 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useNavigate } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useContext } from "react";
+import userContext from "../utils/UserContext";
 export const Header = () => {
   let [buttonName, setButtonName] = useState("Login");
 
   const navigate = useNavigate();
-    const status = useOnlineStatus();
-  
-   return (
+  const status = useOnlineStatus();
+  const { name } = useContext(userContext);
+
+  return (
     <div
       className={`flex w-screen h-20 justify-between items-center p-4 ${
-        status ? "bg-green-900 text-white" : "bg-red-600 text-white"
+        status ? "bg-green-400 text-white" : "bg-red-400 text-white"
       }`}
     >
       <div className=" ">
@@ -47,6 +50,7 @@ export const Header = () => {
             }}
           >
             {buttonName}
+            <span>{"  " + name}</span>
           </button>
         </ul>
       </div>

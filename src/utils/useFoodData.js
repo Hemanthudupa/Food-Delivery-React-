@@ -2,15 +2,12 @@ import { useEffect, useState } from "react";
 import { orderDetails } from "./mockData";
 
 const useFoodData = (id) => {
-  console.log(" custom hook is renderd");
-
   const [foodData, setFoodData] = useState([]);
   useEffect(() => {
     fetch(
       `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.97530&lng=77.59100&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
     ).then((data) => {
       data.json().then((data) => {
-        console.log(data.data.cards, " is the total data ");
         const filteredData = data.data.cards
           .at(-1)
           .groupedCard.cardGroupMap.REGULAR.cards.filter((ele) => {

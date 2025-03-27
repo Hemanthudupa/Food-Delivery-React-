@@ -29,18 +29,14 @@ export function RestaurantCategoray({
   }
   return (
     <div key={categoryId} className="flex justify-center p-4">
-      <div
-        onClick={handleClick}
-        className="w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-5"
-      >
+      <div className="w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-5">
         {/* Category Header */}
         <div className="flex justify-between items-center text-xl font-bold font-mono border-b pb-3">
           <h2>
             {title} ({itemCards.length})
           </h2>
-          {console.log(showData, " is the function ")}
-          <span className="cursor-pointer text-lg">
-            {showData ? "🔽" : "🔼"}
+          <span className="cursor-pointer text-lg" onClick={handleClick}>
+            {showData ? "🔼" : "🔽"}
           </span>
         </div>
 
