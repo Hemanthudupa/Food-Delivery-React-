@@ -1,8 +1,13 @@
 import { IMAGE_BASE_URL } from "../utils/constants";
-
+import { useDispatch } from "react-redux";
+import { addCount } from "../utils/Slices/cartSlice";
 
 const ListItems = ({ data }) => {
-
+  const disptch = useDispatch();
+  const handleAddItem = (e) => {
+    console.log(" invoked ");
+    disptch(addCount(e));
+  };
   return (
     <div className="mt-4 space-y-4">
       {data.map((item) => {
@@ -30,8 +35,13 @@ const ListItems = ({ data }) => {
                   alt={name}
                   className="w-full h-full object-cover rounded-lg absolute flex justify-center items-center"
                 />
-                <div className="h-auto w-[70%] text-green-500 bg-white rounded-md  flex justify-center relative top-20 left-4 border border-gray-400">
-                  <h1 className="font-sans font-bold">ADD</h1>
+                <div
+                  className="h-auto w-[70%] text-green-500 bg-white rounded-md  flex justify-center relative top-20 left-4 border border-gray-400"
+                  onClick={() => {
+                    handleAddItem(item);
+                  }}
+                >
+                  <h1 className="font-sans font-bold cursor-pointer">ADD</h1>
                 </div>
               </div>
             )}

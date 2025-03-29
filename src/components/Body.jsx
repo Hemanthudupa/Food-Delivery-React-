@@ -90,7 +90,7 @@ export const Body = () => {
           }
           return (
             <Link
-              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10  scrollbar-hide"
+              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10  scrollbar-hide "
               key={ele.info.id}
               to={`/category/${ele.info.id}`}
             >

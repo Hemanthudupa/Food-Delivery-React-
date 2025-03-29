@@ -5,12 +5,14 @@ import { useNavigate } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useContext } from "react";
 import userContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 export const Header = () => {
   let [buttonName, setButtonName] = useState("Login");
 
   const navigate = useNavigate();
   const status = useOnlineStatus();
   const { name } = useContext(userContext);
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div
@@ -42,7 +44,9 @@ export const Header = () => {
             {" "}
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className=" hover:text-yellow-200">Cart</li>
+          <li className=" hover:text-yellow-200">
+            <Link to="/cart">Cart({cartItems.length})</Link>
+          </li>
           <button
             className=" hover:text-yellow-200"
             onClick={() => {

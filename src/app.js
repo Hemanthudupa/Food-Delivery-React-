@@ -7,6 +7,9 @@ import Contact from "./components/Contact";
 import { Error404 } from "./components/Error404";
 import About from "./components/AboutClass";
 import userContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const CategorayId = lazy(() => import("./components/Categoray-Id"));
 // import CategorayId from "./components/Categoray-Id";
@@ -24,17 +27,19 @@ const CategorayId = lazy(() => import("./components/Categoray-Id"));
 
 const AppLayout = () => {
   return (
-    <div className="overflow-y-scroll  h-screen w-screen body ">
-      <Header />
-      {/* header should be rendered for every page  */}
-      <userContext.Provider
-        value={{
-          name: " sumanth ",
-        }}
-      >
-        <Outlet />
-      </userContext.Provider>
-    </div>
+    <Provider store={appStore}>
+      <div className="overflow-y-scroll  h-screen w-screen body ">
+        <Header />
+        {/* header should be rendered for every page  */}
+        <userContext.Provider
+          value={{
+            name: " sumanth ",
+          }}
+        >
+          <Outlet />
+        </userContext.Provider>
+      </div>
+    </Provider>
   );
 };
 
@@ -65,6 +70,10 @@ const Route = createBrowserRouter([
             <CategorayId />
           </Suspense>
         ),
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },
