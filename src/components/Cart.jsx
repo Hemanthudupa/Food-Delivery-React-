@@ -1,10 +1,18 @@
 import { useSelector } from "react-redux";
 import { IMAGE_BASE_URL } from "../utils/constants";
 import ListItems from "./ListItems";
+import { clearCart } from "../utils/Slices/cartSlice";
+import { useDispatch } from "react-redux";
+
 const Cart = () => {
   const selector = useSelector((store) => {
     return store.cart.items;
   });
+  const cartdispatch = useDispatch();
+  function clearCartFun() {
+    console.log(" incoked ");
+    cartdispatch(clearCart());
+  }
   return selector.length == 0 ? (
     "cart is empty "
   ) : (
@@ -61,12 +69,19 @@ const Cart = () => {
     //     );
     //   })}
     // </div>
-    <div className="h-screen w-full overflow-x-hidden">
-      <h1>CART</h1>
+    <div className="h-screen w-full overflow-x-hidden flex-col justify-around items-center align-middle">
+      <h1 className="h-9 w-full flex justify-center items-center overflow-x-hidden font-extrabold font-sans text-2xl bg-green-100">
+        CART
+      </h1>
       <div className="h-screen w-full flex justify-center items-center overflow-x-hidden">
         <ListItems data={selector} />
       </div>
-      <h1>clear cart</h1>
+      <h1
+        className="h-9 w-full flex justify-center items-center overflow-x-hidden font-extrabold font-sans text-2xl bg-red-100"
+        onClick={clearCartFun}
+      >
+        clear cart
+      </h1>
     </div>
   );
 };
