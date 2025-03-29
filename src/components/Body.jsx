@@ -5,6 +5,7 @@ import Loader from "./Shimmer";
 import { Link } from "react-router";
 import { orderDetails } from "../utils/mockData";
 import useOnlineStatus from "../utils/useOnlineStatus";
+
 export const Body = () => {
   const [foodData, setFoodData] = useState([]);
   const [search, setSearch] = useState("");
@@ -25,64 +26,51 @@ export const Body = () => {
   const status = useOnlineStatus();
 
   function sortInAlpha() {
-    let largestname = [...foodDataFilter].sort((a, b) => {
+    let sortedData = [...foodDataFilter].sort((a, b) => {
       if (a.strCategory < b.strCategory) return -1;
       if (a.strCategory > b.strCategory) return 1;
     });
-
-    return largestname;
+    return sortedData;
   }
-
-  // if (foodData.length === 0) {
-  //   return <Loader />;
-  // }
-  //
 
   return foodData.length == 0 || !status ? (
     <Loader />
   ) : (
-    <div className="w-screen h-full overflow-hidden  bg-green-50 ">
-      <div className="flex w-screen justify-between ">
-        <div className="w-4/12 flex h-auto justify-evenly ">
+    <div className="w-full min-h-screen bg-gradient-to-br from-green-200 via-green-100 to-green-300 p-10 font-sans flex flex-col items-center">
+      <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl p-6 mb-10 flex flex-col items-center space-y-6">
+        <h1 className="text-3xl font-bold text-green-800">🍽️ Find Your Favorite Food</h1>
+        <div className="flex w-full justify-between items-center space-x-4">
           <input
-            className="w-80 border border-solid  border-green-800 hover:scale-105 "
+            className="w-full p-4 border border-green-700 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
             type="text"
+            placeholder="🔍 Search for food..."
             value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <button
-            className="border-2 bg-green-800 text-white px-4 hover:scale-105 "
+            className="px-6 py-3 bg-green-700 text-white rounded-xl shadow-lg hover:bg-green-600 transition transform hover:scale-110"
             onClick={() => {
-              let data = foodData.filter((ele) => {
-                if (
-                  ele.strCategory.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return ele;
-                }
-              });
+              let data = foodData.filter((ele) =>
+                ele.strCategory.toLowerCase().includes(search.toLowerCase())
+              );
               setFoodDataFilter(data);
             }}
           >
-            Search
+            🔎 Search
           </button>
         </div>
         <button
-          className="w-64 bg-orange-300 text-white"
+          className="px-6 py-3 bg-orange-500 text-white rounded-xl shadow-lg hover:bg-orange-400 transition transform hover:scale-110"
           onClick={() => {
             let data = sortInAlpha();
             setFoodDataFilter(data);
           }}
         >
-          SORT ALPHABETICALLY
+          🔠 Sort Alphabetically
         </button>
       </div>
-      <div className="flex flex-wrap h-screen overflow-scroll justify-center">
-        {/* <RestroCard img="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x4uyxvihmg8qa3pddkgf" resName="Meghana Foods" menu="Biriyani,North Indian,South Indian" ratings="4.3" deliveryTime="38 mins"/>
-        <RestroCard img="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/4398bfb2-6948-484a-9613-2d7628a2457a_588619.JPG" resName="KFC" menu="Burger" ratings="4.8" deliveryTime="19 mins"/>
-       this is props declaraiton 
-       */}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 w-full max-w-6xl">
         {foodDataFilter.map((ele) => {
           let Comp;
           if (ele.info.avgRating > 4.5) {
@@ -90,11 +78,13 @@ export const Body = () => {
           }
           return (
             <Link
-              className="flex w-6/12 h-6/12 justify-center items-center border-x-2 border-b-slate-600 p-10  scrollbar-hide "
+              className="flex flex-col items-center justify-center border border-gray-200 p-6 rounded-2xl shadow-2xl hover:shadow-3xl hover:scale-105 transition bg-white transform hover:-translate-y-2 duration-300"
               key={ele.info.id}
               to={`/category/${ele.info.id}`}
             >
               {Comp ? <Comp food={ele} /> : <RestroCard food={ele} />}
+              <p className="mt-4 text-lg font-semibold text-gray-700">{ele.info.name}</p>
+              <p className="text-sm text-gray-500">⭐ {ele.info.avgRating} | ⏳ {ele.info.deliveryTime} mins</p>
             </Link>
           );
         })}
